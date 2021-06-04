@@ -1,0 +1,10 @@
+<h1>Edit Form</h1>
+<div><%- JSON.stringify(result) %></div>
+ 
+<form method="post" action="/edit/?_method=PUT ">
+    <input type="hidden" name="list_id" value="<%= result[0].list_id  %>" id="">
+    <p>Todo: <input type="text" name="todo" id="" value="<%= result[0].todo  %>"></p>
+    <p>Expire: <input type="date" name="expire" id="" value="<%= moment(result[0].expire).format('YYYY-MM-DD')%>"></p>
+    <p><input type="submit" value="Update" name="" id=""></p>
+</form>
+<a href="/">Back to Home</a>

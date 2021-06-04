@@ -1,0 +1,22 @@
+<h1>Todo list</h1>
+<table border="1">
+    <tr><th>Todo</th><th>Expire</th></tr>
+
+    <% for(let todo of result){%>
+        <tr>
+            <td><%=todo.todo  %></td>
+            <td>
+                <%= moment(todo.expire).format('L') %></td>
+            <td>
+                <a href="/edit?list_id=<%=todo.list_id  %>">Edit</a>
+            </td>
+            <td>
+                <form action="/delete/?_method=DELETE " method="POST">
+                    <input type="hidden" name="list_id" value="<%= todo.list_id  %>" id="">
+                    <input type="submit" value="Delete" name="" id="">
+                </form>
+            </td>
+        </tr>
+    <% } %> 
+</table>
+<a href="/new">Add New</a>
